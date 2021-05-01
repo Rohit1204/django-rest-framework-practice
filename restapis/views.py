@@ -14,5 +14,6 @@ class HelloView(APIView):
         return Response(content)
 
 class HeroViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = Hero.objects.all().order_by('name')
     serializer_class = HeroSerializer       
